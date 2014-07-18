@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/abc_ic_clear_holo_light">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btn_listar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/search_routes" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/btn_listar"
+            android:layout_alignBottom="@+id/btn_listar"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="17dp"
+            android:text="@string/search_routes" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/routes_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="61dp"
+        android:choiceMode="singleChoice" >
+    </ListView>
+    
+</LinearLayout>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/fondofila"
+    android:background="#012345">
+	   
+    <TextView
+        android:id="@+id/cliente_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+	
+    <TextView
+        android:id="@+id/destino_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"        
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/cliente_row"
+        />	    
+	
+    <Button
+        android:id="@+id/btn_track_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/track_routes"
+         />
+</RelativeLayout>
