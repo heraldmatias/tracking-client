@@ -625,12 +625,13 @@ public class DatabaseHelper extends SQLiteOpenHelper
     * 
     * @return
     */
-   long toNextTrack(String name)
+   long toNextTrack(ContentValues args)
    {
       long currentTime = new Date().getTime();
-      ContentValues args = new ContentValues();
-      args.put(TracksColumns.NAME, name);
+      //ContentValues args = new ContentValues();
+      //args.put(TracksColumns.NAME, name);
       args.put(TracksColumns.CREATION_TIME, currentTime);
+      //args.put(TracksColumns.CONDUCTOR, value)
 
       SQLiteDatabase sqldb = getWritableDatabase();
       long trackId = sqldb.insert(Tracks.TABLE, null, args);

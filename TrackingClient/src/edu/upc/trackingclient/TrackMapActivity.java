@@ -3,6 +3,7 @@ package edu.upc.trackingclient;
 //import com.google.android.maps.MapActivity;
 
 //import android.support.v7.app.ActionBarActivity;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.location.LocationClient;
@@ -15,14 +16,19 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import edu.upc.trackingclient.db.GPStracking;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -53,6 +59,7 @@ public class TrackMapActivity extends Activity implements
 	private LatLng latLngposicion;
 	SharedPreferences mPrefs;
 	SharedPreferences.Editor mEditor;
+	ContentResolver provider;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -94,13 +101,23 @@ public class TrackMapActivity extends Activity implements
 		
 		mEditor.putBoolean("KEY_UPDATES_ON", mUpdatesRequested);
 		mEditor.commit();
-
+		
+		provider = getContentResolver();
 	}
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onPostCreate(savedInstanceState);
+		ContentValues values = new ContentValues();
+		
+		values.put(GPStracking.Tracks.NAME, mPrefs.getString("DESTINO", ""));
+		values.put(GPStracking.Tracks.CONDUCTOR, mPrefs.getInt("CONDUCTOR", 0));
+		values.put(GPStracking.Tracks.RUTA, mPrefs.getInt("RUTA", 0));
+		values.put(GPStracking.Tracks.ESTADO, mPrefs.getString("ESTADO", "A"));
+		
+		provider.insert(Uri.withAppendedPath(GPStracking.CONTENT_URI, "tracks"), values);
+		
 		CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latLngDestino, 17);
 		map.addMarker(new MarkerOptions().position(latLngDestino).title("Destino"));
 		map.animateCamera(update);

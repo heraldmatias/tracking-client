@@ -37,7 +37,6 @@ import edu.upc.trackingclient.db.GPStracking.MetaData;
 import edu.upc.trackingclient.db.GPStracking.Segments;
 import edu.upc.trackingclient.db.GPStracking.Tracks;
 import edu.upc.trackingclient.db.GPStracking.Waypoints;
-
 import android.app.SearchManager;
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -339,8 +338,8 @@ public class GPStrackingProvider extends ContentProvider
                insertedUri  = ContentUris.withAppendedId( uri, segmentId );
                break;
             case TRACKS:
-               String name = ( values == null ) ? "" : values.getAsString( Tracks.NAME );
-               trackId     = this.mDbHelper.toNextTrack( name );
+               //String name = ( values == null ) ? "" : values.getAsString( Tracks.NAME );
+               trackId     = this.mDbHelper.toNextTrack( values );
                insertedUri = ContentUris.withAppendedId( uri, trackId );
                break;
             case TRACK_METADATA:

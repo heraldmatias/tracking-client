@@ -68,7 +68,10 @@ public final class GPStracking
       public static final String TABLE = "tracks";
       static final String CREATE_STATEMENT = 
          "CREATE TABLE " + Tracks.TABLE + "(" + " " + Tracks._ID           + " " + Tracks._ID_TYPE + 
-                                          "," + " " + Tracks.NAME          + " " + Tracks.NAME_TYPE + 
+                                          "," + " " + Tracks.NAME          + " " + Tracks.NAME_TYPE +
+                                          "," + " " + Tracks.ESTADO          + " " + Tracks.ESTADO_TYPE +
+                                          "," + " " + Tracks.RUTA          + " " + Tracks.RUTA_TYPE +
+                                          "," + " " + Tracks.CONDUCTOR          + " " + Tracks.CONDUCTOR_TYPE +
                                           "," + " " + Tracks.CREATION_TIME + " " + Tracks.CREATION_TIME_TYPE + 
                                           ");";
    }
@@ -215,7 +218,13 @@ public final class GPStracking
    {
       public static final String NAME          = "name";
       public static final String CREATION_TIME = "creationtime";
+      public static final String RUTA          = "route";
+      public static final String CONDUCTOR     = "conductor";
+      public static final String ESTADO     = "estado";
       static final String CREATION_TIME_TYPE   = "INTEGER NOT NULL";
+      static final String RUTA_TYPE		       = "INTEGER NOT NULL";
+      static final String CONDUCTOR_TYPE	   = "INTEGER NOT NULL";
+      static final String ESTADO_TYPE	   = "TEXT";
       static final String NAME_TYPE            = "TEXT";
       static final String _ID_TYPE             = "INTEGER PRIMARY KEY AUTOINCREMENT";
    }

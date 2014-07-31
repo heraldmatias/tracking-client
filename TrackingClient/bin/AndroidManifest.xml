@@ -7,7 +7,7 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
-    
+        
     <supports-screens
         android:largeScreens="true"
         android:normalScreens="true"
@@ -44,7 +44,10 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
-    	    
+    	
+        <provider
+    		android:name="edu.upc.trackingclient.db.GPStrackingProvider"
+    		android:authorities="nl.sogeti.android.gpstracker" />	    
 	
         <activity
             android:name=".AuthActivity"

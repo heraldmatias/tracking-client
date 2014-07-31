@@ -63,9 +63,9 @@ public class ListRoutesServiceTask extends AsyncTask<String, Integer, String> {
 				JSONObject json = jsonArray.getJSONObject(i);
 				JSONObject cliente = json.getJSONObject("clienteId");
 				JSONObject ruta = json.getJSONObject("rutaId");
-				//JSONObject conductor = ruta.getJSONObject("conductorId");
+				JSONObject conductor = ruta.getJSONObject("conductorId");
 				Log.d("conversion", cliente.getString("razonsocial"));
-				lista.add(new Route(cliente.getString("latlong"), cliente.getString("razonsocial"), ruta.getString("estado")));
+				lista.add(new Route(cliente.getString("latlong"), cliente.getString("razonsocial"), ruta.getString("estado"), json.getInt("detallerutaid"), conductor.getInt("conductorid")));
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();

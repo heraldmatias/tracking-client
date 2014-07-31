@@ -5,6 +5,7 @@ import edu.upc.trackingclient.tasks.AuthServiceTask;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -21,6 +22,7 @@ public class AuthActivity extends ActionBarActivity {
 
 	private Conductor user;
 	private InputMethodManager inMgr;
+	SharedPreferences mPrefs;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,13 @@ public class AuthActivity extends ActionBarActivity {
 
 	public void sendMessage() {
 	    Intent intent = new Intent(this, ListRoutesActivity.class);	    
-//	    String message = editText.getText().toString();
+	 // Open the shared preferences
+ 		mPrefs = getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE);
+ 		// Get a SharedPreferences editor
+ 		SharedPreferences.Editor mEditor = mPrefs.edit();
+ 		mEditor.putInt("CONDUCTOR_ID", user.getId());
+		mEditor.commit();
+		
 	    intent.putExtra("user", user.getId());
 	    startActivity(intent);
 	}
