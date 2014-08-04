@@ -13,7 +13,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.util.Log;
 
 public class ListRoutesHelper {
-	private static final String SERVICE_HOST = "http://192.168.2.6:8080/ServiceTracking/webresources/detalleruta/byconductor/";
+	private static final String SERVICE_HOST = "http://50.116.43.119:8080/ServiceTracking-1.0-SNAPSHOT/webresources/detalleruta/byconductor/";
 	private static final int HTTP_STATUS_OK = 200;
 	private static final byte[] buff = new byte[1024];
 	

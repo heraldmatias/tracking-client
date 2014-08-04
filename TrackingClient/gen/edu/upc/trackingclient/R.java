@@ -16,6 +16,9 @@ public final class R {
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
     }
+    public static final class array {
+        public static final int status_array=0x7f0c0000;
+    }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -1451,18 +1454,21 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f02006c;
         public static final int common_signin_btn_text_pressed_dark=0x7f02006d;
         public static final int common_signin_btn_text_pressed_light=0x7f02006e;
-        public static final int ic_launcher=0x7f02006f;
-        public static final int ic_plusone_medium_off_client=0x7f020070;
-        public static final int ic_plusone_small_off_client=0x7f020071;
-        public static final int ic_plusone_standard_off_client=0x7f020072;
-        public static final int ic_plusone_tall_off_client=0x7f020073;
-        public static final int powered_by_google_dark=0x7f020074;
-        public static final int powered_by_google_light=0x7f020075;
-        public static final int speedindexbar=0x7f020076;
+        public static final int dr_status_row=0x7f02006f;
+        public static final int finish_flag=0x7f020070;
+        public static final int ic_launcher=0x7f020071;
+        public static final int ic_maps_indicator_current_position=0x7f020072;
+        public static final int ic_plusone_medium_off_client=0x7f020073;
+        public static final int ic_plusone_small_off_client=0x7f020074;
+        public static final int ic_plusone_standard_off_client=0x7f020075;
+        public static final int ic_plusone_tall_off_client=0x7f020076;
+        public static final int powered_by_google_dark=0x7f020077;
+        public static final int powered_by_google_light=0x7f020078;
+        public static final int speedindexbar=0x7f020079;
     }
     public static final class id {
         public static final int Button01=0x7f080053;
-        public static final int Button02=0x7f080054;
+        public static final int Button02=0x7f080056;
         public static final int action_bar=0x7f08002e;
         public static final int action_bar_activity_content=0x7f080027;
         public static final int action_bar_container=0x7f08002d;
@@ -1471,26 +1477,30 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f080035;
         public static final int action_bar_title=0x7f080034;
         public static final int action_context_bar=0x7f08002f;
+        public static final int action_finish=0x7f080066;
         public static final int action_menu_divider=0x7f080028;
         public static final int action_menu_presenter=0x7f080029;
         public static final int action_mode_close_button=0x7f080036;
-        public static final int action_settings=0x7f08005f;
+        public static final int action_note=0x7f080067;
+        public static final int action_pause=0x7f080065;
+        public static final int action_settings=0x7f080063;
+        public static final int action_start=0x7f080064;
         public static final int activity_chooser_view_content=0x7f080037;
         public static final int always=0x7f08001e;
         public static final int beginning=0x7f080023;
         public static final int book_now=0x7f080010;
         public static final int btn_listar=0x7f080057;
-        public static final int btn_track_row=0x7f08005e;
-        public static final int button01=0x7f080055;
+        public static final int btn_track_row=0x7f080060;
+        public static final int button01=0x7f080054;
         public static final int buyButton=0x7f08000a;
         public static final int buy_now=0x7f08000f;
         public static final int buy_with_google=0x7f08000e;
         public static final int checkbox=0x7f08003f;
         public static final int classic=0x7f080011;
-        public static final int cliente_row=0x7f08005c;
+        public static final int cliente_row=0x7f08005e;
         public static final int collapseActionView=0x7f080020;
         public static final int default_activity_button=0x7f08003a;
-        public static final int destino_row=0x7f08005d;
+        public static final int destino_row=0x7f08005f;
         public static final int dialog=0x7f080021;
         public static final int disableHome=0x7f08001b;
         public static final int dropdown=0x7f080022;
@@ -1500,7 +1510,7 @@ containing a value of this type.
         public static final int end=0x7f080025;
         public static final int expand_activities_button=0x7f080038;
         public static final int expanded_menu=0x7f08003e;
-        public static final int fondofila=0x7f08005b;
+        public static final int fondofila=0x7f08005d;
         public static final int grayscale=0x7f080012;
         public static final int holo_dark=0x7f080005;
         public static final int holo_light=0x7f080006;
@@ -1521,8 +1531,10 @@ containing a value of this type.
         public static final int none=0x7f080000;
         public static final int normal=0x7f080001;
         public static final int production=0x7f080007;
+        public static final int progress=0x7f080061;
         public static final int progress_circular=0x7f08002a;
         public static final int progress_horizontal=0x7f08002b;
+        public static final int progresstext=0x7f080062;
         public static final int radio=0x7f080041;
         public static final int routes_list=0x7f080058;
         public static final int sandbox=0x7f080008;
@@ -1542,6 +1554,7 @@ containing a value of this type.
         public static final int showCustom=0x7f08001a;
         public static final int showHome=0x7f080017;
         public static final int showTitle=0x7f080019;
+        public static final int spStatus=0x7f08005b;
         public static final int split_action_bar=0x7f080030;
         public static final int strict_sandbox=0x7f080009;
         public static final int submit_area=0x7f08004b;
@@ -1550,9 +1563,10 @@ containing a value of this type.
         public static final int terrain=0x7f080003;
         public static final int textView1=0x7f080050;
         public static final int textView2=0x7f080051;
-        public static final int textView3=0x7f080056;
+        public static final int textView3=0x7f080055;
         public static final int title=0x7f08003d;
         public static final int top_action_bar=0x7f080032;
+        public static final int txtDescription=0x7f08005c;
         public static final int up=0x7f080033;
         public static final int useLogo=0x7f080016;
         public static final int withText=0x7f08001f;
@@ -1612,13 +1626,15 @@ containing a value of this type.
         public static final int activity_auth=0x7f030018;
         public static final int activity_list_routes=0x7f030019;
         public static final int activity_track_map=0x7f03001a;
-        public static final int routerow=0x7f03001b;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
+        public static final int checkpoint_dialog=0x7f03001b;
+        public static final int routerow=0x7f03001c;
+        public static final int savenotificationprogress=0x7f03001d;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
     }
     public static final class menu {
-        public static final int auth=0x7f0c0000;
-        public static final int list_routes=0x7f0c0001;
-        public static final int track_map=0x7f0c0002;
+        public static final int auth=0x7f0d0000;
+        public static final int list_routes=0x7f0d0001;
+        public static final int track_map=0x7f0d0002;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1661,9 +1677,18 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f06002b;
+        public static final int action_finish_track=0x7f06003c;
         public static final int action_load_routes=0x7f060030;
+        public static final int action_note_track=0x7f06003d;
+        public static final int action_pause_track=0x7f06003b;
+        public static final int action_post_track=0x7f060040;
         public static final int action_settings=0x7f06002f;
+        public static final int action_share_failed=0x7f060043;
+        public static final int action_share_success=0x7f060042;
+        public static final int action_share_track=0x7f060041;
+        public static final int action_start=0x7f06003a;
         public static final int app_name=0x7f06002d;
+        public static final int app_tag=0x7f060044;
         public static final int auth_client_needs_enabling_title=0x7f060001;
         public static final int auth_client_needs_installation_title=0x7f060002;
         public static final int auth_client_needs_update_title=0x7f060003;
@@ -1759,16 +1784,30 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f06001e;
+        public static final int error_buildxml=0x7f06004f;
+        public static final int error_filename=0x7f06004d;
+        public static final int error_filenotfound=0x7f06004c;
+        public static final int error_writesdcard=0x7f060050;
+        public static final int from=0x7f060047;
         public static final int hello_world=0x7f06002e;
+        public static final int no_tracks=0x7f060048;
+        public static final int password=0x7f06003f;
         public static final int search_routes=0x7f060037;
+        public static final int taskerror_gpx_write=0x7f06004e;
+        public static final int ticker_failed=0x7f06004b;
+        public static final int ticker_saving=0x7f060049;
+        public static final int ticker_stored=0x7f06004a;
         public static final int title_activity_auth=0x7f060036;
         public static final int title_activity_list_routes=0x7f060035;
         public static final int title_activity_track_map=0x7f060039;
+        public static final int track_description=0x7f060045;
         public static final int track_routes=0x7f060038;
+        public static final int track_status=0x7f060046;
         public static final int user_cancel_button=0x7f060034;
         public static final int user_login=0x7f060031;
         public static final int user_login_button=0x7f060033;
         public static final int user_password=0x7f060032;
+        public static final int username=0x7f06003e;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */

@@ -2,7 +2,7 @@ package edu.upc.trackingclient;
 
 import edu.upc.trackingclient.entity.Conductor;
 import edu.upc.trackingclient.tasks.AuthServiceTask;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class AuthActivity extends ActionBarActivity {
+public class AuthActivity extends Activity {
 
 	private Conductor user;
 	private InputMethodManager inMgr;
@@ -35,6 +35,7 @@ public class AuthActivity extends ActionBarActivity {
 		this.inMgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		
 		final Button button = (Button) findViewById(R.id.button01);
+		final Button btnSalir = (Button) findViewById(R.id.Button02);
 		final EditText txtUser = (EditText) findViewById(R.id.editText1);
 		final EditText txtPass = (EditText) findViewById(R.id.editText2);
 		
@@ -60,6 +61,15 @@ public class AuthActivity extends ActionBarActivity {
 	            }
             }
         });
+        
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 	}
 
 	public void sendMessage() {

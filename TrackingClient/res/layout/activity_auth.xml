@@ -9,135 +9,60 @@
     tools:context="edu.upc.trackingclient.AuthActivity" >
 
     <TableRow
-
         android:id="@+id/tableRow1"
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-
         android:layout_alignParentRight="true"
-
         android:layout_alignParentTop="true"
-
         android:layout_marginRight="138dp"
-
         android:layout_marginTop="104dp" >
-
     </TableRow>
 
-
-
     <EditText
-
         android:id="@+id/editText1"
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-
         android:layout_below="@+id/textView1"
-
         android:layout_centerHorizontal="true"
-
         android:ems="10"
-
         android:inputType="numberSigned" >
-
         <requestFocus />
-
     </EditText>
-
-
-
+    
     <TextView
-
         android:id="@+id/textView1"
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-
         android:layout_alignLeft="@+id/editText1"
-
         android:layout_alignParentTop="true"
-
         android:layout_marginTop="45dp"
-
         android:text="@string/user_login" />
 
-
-
     <TextView
-
         android:id="@+id/textView2"
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-
         android:layout_alignLeft="@+id/editText1"
-
         android:layout_below="@+id/tableRow1"
-
         android:text="@string/user_password" />
 
-
-
     <EditText
-
         android:id="@+id/editText2"
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-
         android:layout_alignLeft="@+id/textView2"
-
         android:layout_below="@+id/textView2"
-
         android:ems="10"
-
         android:inputType="textPassword"
-
         android:nextFocusLeft="@+id/Button01" />
 
-
-
     <Button
-
-        android:id="@+id/Button02"
-
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-
-        android:layout_alignBaseline="@+id/button01"
-
-        android:layout_alignBottom="@+id/button01"
-
-        android:layout_alignLeft="@+id/tableRow1"
-
-        android:layout_marginLeft="24dp"
-
-        android:text="@string/user_cancel_button" />
-
-
-
-    <Button
-
         android:id="@+id/button01"
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-
         android:layout_alignRight="@+id/textView2"
-
         android:layout_below="@+id/editText2"
-
         android:layout_marginTop="55dp"
-
         android:text="@string/user_login_button" />
 
     <TextView
@@ -148,5 +73,14 @@
         android:layout_centerHorizontal="true"
         android:text="@string/title_activity_auth"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/Button02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button01"
+        android:layout_alignBottom="@+id/button01"
+        android:layout_alignRight="@+id/editText1"
+        android:text="@string/user_cancel_button" />
 
 </RelativeLayout>

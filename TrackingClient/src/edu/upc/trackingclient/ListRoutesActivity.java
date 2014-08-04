@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import edu.upc.trackingclient.adapters.RoutesDataAdapter;
 import edu.upc.trackingclient.entity.Route;
 import edu.upc.trackingclient.tasks.ListRoutesServiceTask;
-
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,18 +19,19 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ListRoutesActivity extends ActionBarActivity {
+public class ListRoutesActivity extends Activity {
 
-	private ArrayList<Route> rutas = new ArrayList<Route>();
 	private ListView routesList;
 	private InputMethodManager inMgr;
 	private LayoutInflater layoutInflater;
 	private Button routesButton;
 	//private ListRoutesServiceTask 
 	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,6 +46,13 @@ public class ListRoutesActivity extends ActionBarActivity {
 		this.inMgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		this.layoutInflater = LayoutInflater.from(this);
 		this.routesButton = (Button) findViewById(R.id.btn_listar);
+		
+//		final Object data = getLastNonConfigurationInstance();
+//		
+//		if (data != null) {
+//			setRutas((ArrayList<Route>) data);
+//	    }
+
 		
 		this.routesButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -79,12 +87,22 @@ public class ListRoutesActivity extends ActionBarActivity {
 	}
 	
 	@Override
-	public Object onRetainCustomNonConfigurationInstance() {
-		// TODO Auto-generated method stub
-		Object[] data = new Object[1];
-		data[0] = this.rutas;
-		return data;
+	public Object onRetainNonConfigurationInstance() {
+		Log.d("lista", "ORIENTATIO CHANGE");
+		return null;
+//	    final ArrayList<Route> frutas = new ArrayList<Route>();
+//	    frutas = this.rutas;
+//	    return frutas;
+//		return this.rutas;
 	}
+	
+//	@Override
+//	public Object onRetainCustomNonConfigurationInstance() {
+//		// TODO Auto-generated method stub
+//		Object[] data = new Object[1];
+//		data[0] = this.rutas;
+//		return data;
+//	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -106,7 +124,6 @@ public class ListRoutesActivity extends ActionBarActivity {
 	}
 
 	public void setRutas(ArrayList<Route> rutas) {
-		this.rutas = rutas;
 		//aca se llama el listview
 		routesList.setAdapter(new RoutesDataAdapter(this, layoutInflater, rutas));
 	}
@@ -114,7 +131,7 @@ public class ListRoutesActivity extends ActionBarActivity {
 	
 	public static class MyViewHolder{
 		public TextView cliente;
-		public TextView destino;
+		public Spinner destino;
 		public Button trackButton;
 		public Route route;
 	}

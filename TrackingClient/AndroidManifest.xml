@@ -47,7 +47,7 @@
     	
         <provider
     		android:name="edu.upc.trackingclient.db.GPStrackingProvider"
-    		android:authorities="nl.sogeti.android.gpstracker" />	    
+    		android:authorities="edu.upc.android.gpstracker" />	    
 	
         <activity
             android:name=".AuthActivity"

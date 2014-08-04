@@ -15,8 +15,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class RoutesDataAdapter extends BaseAdapter implements OnClickListener {
@@ -57,6 +59,15 @@ public class RoutesDataAdapter extends BaseAdapter implements OnClickListener {
 		// TODO Auto-generated method stub
 		return pos;
 	}
+	
+	private void setStatusList(Spinner spinner){
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(activity,
+		        R.array.status_array, android.R.layout.simple_spinner_item);
+		// Specify the layout to use when the list of choices appears
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		// Apply the adapter to the spinner
+		spinner.setAdapter(adapter);
+	}
 
 	@Override
 	public View getView(int pos, View convertView, ViewGroup parent) {
@@ -66,7 +77,8 @@ public class RoutesDataAdapter extends BaseAdapter implements OnClickListener {
 			convertView = layoutInflater.inflate(R.layout.routerow, parent, false);
 			holder = new MyViewHolder();
 			holder.cliente = (TextView) convertView.findViewById(R.id.cliente_row);
-			holder.destino = (TextView) convertView.findViewById(R.id.destino_row);
+			holder.destino = (Spinner) convertView.findViewById(R.id.destino_row);
+			setStatusList(holder.destino);
 			holder.trackButton = (Button) convertView.findViewById(R.id.btn_track_row);
 			holder.trackButton.setTag(holder);
 			convertView.setTag(holder);
@@ -79,9 +91,8 @@ public class RoutesDataAdapter extends BaseAdapter implements OnClickListener {
 		Route route = lista.get(pos);
 		holder.route = route;
 		holder.cliente.setText(route.getCliente());
-		holder.destino.setText(route.getEstado());
-		holder.trackButton.setOnClickListener(this);
-		
+		holder.destino.setSelection(StatusCodes.getPositionFromCode(route.getEstado()));
+		holder.trackButton.setOnClickListener(this);		
 		
 		return convertView;
 	}

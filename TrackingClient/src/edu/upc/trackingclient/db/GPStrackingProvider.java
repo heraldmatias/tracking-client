@@ -61,67 +61,68 @@ import android.util.Log;
  * 1 or more segments.
  * <p>
  * For example:<br>
- * <code>content://nl.sogeti.android.gpstracker/tracks</code>
+ * <code>content://edu.upc.android.gpstracker/tracks</code>
  * is the URI that returns all the stored tracks or starts a new track on insert 
  * <p>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2</code>
+ * <code>content://edu.upc.android.gpstracker/tracks/2</code>
  * is the URI string that would return a single result row, the track with ID = 23. 
  * <p>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/segments</code> is the URI that returns 
+ * <code>content://edu.upc.android.gpstracker/tracks/2/segments</code> is the URI that returns 
  * all the stored segments of a track with ID = 2 or starts a new segment on insert 
  * <p>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/waypoints</code> is the URI that returns 
+ * <code>content://edu.upc.android.gpstracker/tracks/2/waypoints</code> is the URI that returns 
  * all the stored waypoints of a track with ID = 2
  * <p>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/segments</code> is the URI that returns 
+ * <code>content://edu.upc.android.gpstracker/tracks/2/segments</code> is the URI that returns 
  * all the stored segments of a track with ID = 2 
  * <p>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/segments/3</code> is
+ * <code>content://edu.upc.android.gpstracker/tracks/2/segments/3</code> is
  * the URI string that would return a single result row, the segment with ID = 3 of a track with ID = 2 . 
  * <p>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/segments/1/waypoints</code> is the URI that 
+ * <code>content://edu.upc.android.gpstracker/tracks/2/segments/1/waypoints</code> is the URI that 
  * returns all the waypoints of a segment 1 of track 2.
  * <p>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/segments/1/waypoints/52</code> is the URI string that 
+ * <code>content://edu.upc.android.gpstracker/tracks/2/segments/1/waypoints/52</code> is the URI string that 
  * would return a single result row, the waypoint with ID = 52
  * <p>
  * Media is stored under a waypoint and may be queried as:<br>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/segments/3/waypoints/22/media</code>
+ * <code>content://edu.upc.android.gpstracker/tracks/2/segments/3/waypoints/22/media</code>
  * <p>
  * 
  * 
  * All media for a segment can be queried with:<br>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/segments/3/media</code>
+ * <code>content://edu.upc.android.gpstracker/tracks/2/segments/3/media</code>
  * <p>
  * All media for a track can be queried with:<br>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/media</code>
+ * <code>content://edu.upc.android.gpstracker/tracks/2/media</code>
  * 
  * <p>
  * The whole set of collected media may be queried as:<br>
- * <code>content://nl.sogeti.android.gpstracker/media</code>
+ * <code>content://edu.upc.android.gpstracker/media</code>
  * <p>
  * A single media is stored with an ID, for instance ID = 12:<br>
- * <code>content://nl.sogeti.android.gpstracker/media/12</code>
+ * <code>content://edu.upc.android.gpstracker/media/12</code>
  * <p>
  * The whole set of collected media may be queried as:<br>
- * <code>content://nl.sogeti.android.gpstracker/media</code>
+ * <code>content://edu.upc.android.gpstracker/media</code>
  * <p>
  * 
  * 
  * Meta-data regarding a single waypoint may be queried as:<br>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/segments/3/waypoints/22/metadata</code>
+ * <code>content://edu.upc.android.gpstracker/tracks/2/segments/3/waypoints/22/metadata</code>
  * <p>
  * Meta-data regarding a single segment as whole may be queried as:<br>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/segments/3/metadata</code>
+ * <code>content://edu.upc.android.gpstracker/tracks/2/segments/3/metadata</code>
  * Note: This does not include meta-data of waypoints.
  * <p>
  * Meta-data regarding a single track as a whole may be queried as:<br>
- * <code>content://nl.sogeti.android.gpstracker/tracks/2/metadata</code>
+ * <code>content://edu.upc.android.gpstracker/tracks/2/metadata</code>
  * Note: This does not include meta-data of waypoints or segments.
  *
  * @version $Id$
  * @author rene (c) Jan 22, 2009, Sogeti B.V.
  */
+@SuppressWarnings("deprecation")
 public class GPStrackingProvider extends ContentProvider
 {
 
@@ -551,7 +552,7 @@ public class GPStrackingProvider extends ContentProvider
       switch (match)
       {
          case TRACK_ID:
-            trackId = new Long( uri.getLastPathSegment() ).longValue();
+            trackId = Long.valueOf(uri.getLastPathSegment()); //new Long( uri.getLastPathSegment() ).longValue();
             String name = givenValues.getAsString( Tracks.NAME );
             updates = mDbHelper.updateTrack(trackId, name);   
             break;
@@ -605,13 +606,13 @@ public class GPStrackingProvider extends ContentProvider
       switch( match )
       {
          case GPStrackingProvider.TRACK_ID:
-            affected = this.mDbHelper.deleteTrack( new Long( uri.getLastPathSegment() ).longValue() );
+            affected = this.mDbHelper.deleteTrack(Long.valueOf(uri.getLastPathSegment()));//new Long( uri.getLastPathSegment() ).longValue() );
             break;
          case GPStrackingProvider.MEDIA_ID:
-            affected = this.mDbHelper.deleteMedia( new Long( uri.getLastPathSegment() ).longValue() );
+            affected = this.mDbHelper.deleteMedia(Long.valueOf(uri.getLastPathSegment()));//new Long( uri.getLastPathSegment() ).longValue() );
             break;
          case GPStrackingProvider.METADATA_ID:
-            affected = this.mDbHelper.deleteMetaData( new Long( uri.getLastPathSegment() ).longValue() );
+            affected = this.mDbHelper.deleteMetaData(Long.valueOf(uri.getLastPathSegment())); //new Long( uri.getLastPathSegment() ).longValue() );
             break;
          default:
             affected = 0;

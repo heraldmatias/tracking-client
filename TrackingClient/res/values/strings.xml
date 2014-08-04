@@ -7,12 +7,46 @@
     <string name="action_load_routes">Leyendo rutas</string>
     <string name="user_login">Usuario</string>
     <string name="user_password">Contraseña</string>
-    <string name="user_login_button">Iniciar Sesión</string>
-    <string name="user_cancel_button">Cerrar Sesión</string>
+    <string name="user_login_button">Acceder</string>
+    <string name="user_cancel_button">Cancelar</string>
     <string name="title_activity_list_routes">ListRoutesActivity</string>
     <string name="title_activity_auth">Inicio de sesión</string>
     <string name="search_routes">Listar Rutas</string>
     <string name="track_routes">Track Ruta</string>
     <string name="title_activity_track_map">TrackMapActivity</string>
+    <string name="action_start">Inciar track</string>
+    <string name="action_pause_track">Pausar track</string>
+    <string name="action_finish_track">Terminar track</string>
+    <string name="action_note_track">Anotar track</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="action_post_track">Enviar track</string>
+    <string name="action_share_track">Enviando datos al servidor</string>
+    <string name="action_share_success">Los datos se enviaron exitosamente</string>
+    <string name="action_share_failed">Ocurrio un erro al enviar los datos</string>
+    <string name="app_tag">GPSTracker</string>
+
+    <string-array name="status_array">
+        <item>Entregado</item>
+        <item>En espera del cliente</item>
+        <item>No entregado</item>
+        <item>Problemas con el producto</item>
+        <item>Cliente no habido</item>
+        <item>Rechazo del producto</item>
+        <item>Producto incompleto</item>
+    </string-array>
+
+    <string name="track_description">Escriba observación</string>
+    <string name="track_status">Seleccione estado</string>
+    <string name="from">Tracked on: </string>
+    <string name="no_tracks">No tracks stored</string>
+    <string name="ticker_saving">Gurdando Archivo: </string>
+    <string name="ticker_stored">Stored: </string>
+    <string name="ticker_failed">Unable to save the route: </string>
+    <string name="error_filenotfound"> reason: Can not find file or directory on SD card</string>
+    <string name="error_filename"> reason: Incorrect filename</string>
+    <string name="taskerror_gpx_write">Writing GPX data</string>
+    <string name="error_buildxml"> reason: Error building XML</string>
+    <string name="error_writesdcard"> reason: Error writing to SD card</string>
 
 </resources>

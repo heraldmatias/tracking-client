@@ -10,14 +10,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
-	
-    <TextView
+    
+    <Spinner
         android:id="@+id/destino_row"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"        
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cliente_row"
+        android:layout_marginLeft="48dp"
         android:layout_toRightOf="@+id/cliente_row"
-        />	    
+        android:drawSelectorOnTop="true" />
+<!--     android:background="@drawable/dr_status_row"     -->
 	
     <Button
         android:id="@+id/btn_track_row"
@@ -26,4 +28,7 @@
         android:layout_alignParentRight="true"
         android:text="@string/track_routes"
          />
+
+    
+
 </RelativeLayout>
