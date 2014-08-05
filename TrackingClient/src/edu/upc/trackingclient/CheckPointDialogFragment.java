@@ -53,14 +53,14 @@ public class CheckPointDialogFragment extends DialogFragment implements OnItemSe
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 			
 		LayoutInflater inflater = getActivity().getLayoutInflater();
-
-		builder.setView(inflater.inflate(R.layout.checkpoint_dialog, null))
+		final View view = inflater.inflate(R.layout.checkpoint_dialog, null); 
+		builder.setView(view)
 				.setPositiveButton(R.string.action_post_track,
 						new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int id) {
-								final Spinner spStatus = (Spinner) getActivity().findViewById(R.id.spStatus);
-								final EditText txtDescription = (EditText) getActivity().findViewById(R.id.txtDescription);
+								final Spinner spStatus = (Spinner) view.findViewById(R.id.spStatus);
+								final EditText txtDescription = (EditText) view.findViewById(R.id.txtDescription);
 								
 								String description = txtDescription.getText().toString();
 								String status = StatusCodes.getCodeFromPosition(spStatus.getSelectedItemPosition());

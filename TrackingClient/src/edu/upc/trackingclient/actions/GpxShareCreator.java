@@ -14,6 +14,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
@@ -27,13 +28,14 @@ import edu.upc.trackingclient.utils.Constants;
 
 public class GpxShareCreator extends GpxCreator {
 
-	private static final String SERVICE_HOST = "http://192.168.2.6/WSTest.php";//"http://50.116.43.119:8080/ServiceTracking-1.0-SNAPSHOT/webresources/detalleruta/save";
+	private static final String SERVICE_HOST = "http://192.168.2.8/WSTest.php";//"http://50.116.43.119:8080/ServiceTracking-1.0-SNAPSHOT/webresources/detalleruta/save";
 	private static final String TAG = "OGT.OsmSharing";
 	public static final String OSM_FILENAME = "OSM_Trace";
 	private String responseText;
 	private Uri mFileUri;
 	private String description;
 	private String status;
+	private Integer rutaId;
 
 	public GpxShareCreator(Context context, Uri trackUri,
 			String chosenBaseFileName,String description, String status, boolean attachments,
@@ -41,6 +43,9 @@ public class GpxShareCreator extends GpxCreator {
 		super(context, trackUri, chosenBaseFileName, attachments, listener);
 		this.description = description;
 		this.status = status;
+		
+		SharedPreferences mPrefs = context.getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE);
+		this.rutaId = mPrefs.getInt("RUTA", 0);
 	}
 
 	public void resumeOsmSharing(Uri fileUri, Uri trackUri) {
@@ -64,8 +69,14 @@ public class GpxShareCreator extends GpxCreator {
 
 		CharSequence text = mContext.getString(R.string.action_share_success)
 				+ responseText;
-		Toast toast = Toast.makeText(mContext, text, Toast.LENGTH_LONG);
-		toast.show();
+		if(responseText==null){
+			text = mContext.getString(R.string.action_share_failed);
+			Toast toast = Toast.makeText(mContext, text, Toast.LENGTH_LONG);
+			toast.show();
+		}else{
+			Toast toast = Toast.makeText(mContext, text, Toast.LENGTH_LONG);
+			toast.show();
+		}
 	}
 
 	/**
@@ -111,10 +122,11 @@ public class GpxShareCreator extends GpxCreator {
 					
 			builder.addPart("my_file", new FileBody(gpxFile));
 			builder.addTextBody("tags", tags);
-//			builder.addTextBody("description", description);
-//			builder.addTextBody("status", status);
+			builder.addTextBody("description", description);
+			builder.addTextBody("status", status);
+			builder.addTextBody("rutaId", this.rutaId.toString());
 			
-			HttpEntity entity = builder.build();			
+			HttpEntity entity = builder.build();
 			method.setEntity(entity);
 			
 			response = httpclient.execute(method);
@@ -125,6 +137,7 @@ public class GpxShareCreator extends GpxCreator {
 			
 			responseText = XmlCreator.convertStreamToString(stream);
 		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {			
 			if (metaData != null) {
 				metaData.close();
@@ -134,10 +147,6 @@ public class GpxShareCreator extends GpxCreator {
 		if (statusCode != 200) {
 			Log.e(TAG, "Failed to upload to error code " + statusCode + " "
 					+ responseText);
-			String text = mContext.getString(R.string.action_share_failed)
-					+ responseText;
-			Toast toast = Toast.makeText(mContext, text, Toast.LENGTH_LONG);
-			toast.show();			
 		}
 			
 	}

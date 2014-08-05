@@ -18,7 +18,8 @@
         android:layout_below="@+id/cliente_row"
         android:layout_marginLeft="48dp"
         android:layout_toRightOf="@+id/cliente_row"
-        android:drawSelectorOnTop="true" />
+        android:drawSelectorOnTop="true" 
+        android:clickable="false" />
 <!--     android:background="@drawable/dr_status_row"     -->
 	
     <Button
